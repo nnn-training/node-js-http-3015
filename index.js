@@ -1,5 +1,6 @@
 'use strict';
 const http = require('http');
+const fs = require('fs');
 const server = http
   .createServer((req, res) => {
     const now = new Date();
@@ -10,7 +11,6 @@ const server = http
 
     switch (req.method) {
       case 'GET':
-        const fs = require('fs');
         const rs = fs.createReadStream('./form.html');
         rs.pipe(res);
         break;
