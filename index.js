@@ -1,6 +1,6 @@
 'use strict';
-const http = require('http');
-const fs = require('fs');
+const http = require('node:http');
+const fs = require('node:fs');
 const server = http
   .createServer((req, res) => {
     const now = new Date();
@@ -22,7 +22,7 @@ const server = http
           })
           .on('end', () => {
             const answer = new URLSearchParams(rawData);
-            const body = `${answer.get('name')}さんは${answer.get('yaki-shabu')}に投票しました`;
+            const body = `${answer.get('name')}さんは${answer.get('yaki-tofu')}に投票しました`;
             console.info(`[${now}] ${body}`);
             res.write(`<!DOCTYPE html><html lang="ja"><body><h1>${body}</h1></body></html>`);
             res.end();
